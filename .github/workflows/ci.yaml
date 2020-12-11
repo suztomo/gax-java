@@ -13,4 +13,4 @@ jobs:
         with:
           java-version: 8
       - run: java -version
-      - uses: suztomo/cloud-opensource-java/linkage-monitor@v1
+      - uses: suztomo/cloud-opensource-java@v1
