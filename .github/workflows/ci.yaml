@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 8
       - run: java -version
-      - uses: suztomo/cloud-opensource-java@v1.0.1
+      - uses: suztomo/cloud-opensource-java@v100
 
 # Does this work
 
