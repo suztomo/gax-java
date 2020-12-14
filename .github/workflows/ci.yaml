@@ -12,6 +12,8 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 8
-      # install project to local Maven repository is done in entrypoint.sh
+      # install project to local Maven repository
       - run: ./gradlew --debug build publishToMavenLocal -x test -x signMavenJavaPublication
+      - run: find /root/.m2 -name '*.pom'
+      - run: ln -s /root/.m2 /github/home/.m2
       - uses: suztomo/cloud-opensource-java@v1
