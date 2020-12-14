@@ -13,7 +13,8 @@ jobs:
         with:
           java-version: 8
       - run: java -version
-      - uses: suztomo/cloud-opensource-java@v100
+      - run: ./gradlew build publishToMavenLocal -x test -x signMavenJavaPublication
+      - uses: suztomo/cloud-opensource-java@v1
 
 # Does this work
 
