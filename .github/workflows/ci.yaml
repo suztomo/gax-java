@@ -12,9 +12,11 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 8
-      # install project to local Maven repository
-      - run: ./gradlew --debug build publishToMavenLocal -x test -x signMavenJavaPublication
-      - run: find /home/runner/.m2 -name '*.pom'
       - run: mkdir -p /home/runner/work/_temp/_github_home
-      - run: ln /home/runner/.m2 /home/runner/work/_temp/_github_home/.m2
+      # install project to local Maven repository
+      - run: JAVA_OPTS="-Duser.home=/home/runner/work/_temp/_github_home" ./gradlew --debug build publishToMavenLocal -x test -x signMavenJavaPublication
+      - run: find /home/runner/.m2 -name '*.pom'
+      - run: find /home/runner/work/_temp/_github_home/.m2 -name '*.pom'
+      # hard link cannot be used for directory
+      # - run: ln -s /home/runner/.m2 /home/runner/work/_temp/_github_home/.m2
       - uses: suztomo/cloud-opensource-java@v1
