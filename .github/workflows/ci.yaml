@@ -14,6 +14,7 @@ jobs:
           java-version: 8
       # install project to local Maven repository
       - run: ./gradlew --debug build publishToMavenLocal -x test -x signMavenJavaPublication
-      - run: find /root/.m2 -name '*.pom'
-      - run: ln -s /root/.m2 /github/home/.m2
+      - run: find /home/runner/.m2 -name '*.pom'
+      - run: mkdir -p /home/runner/work/_temp/_github_home
+      - run: ln -s /home/runner/.m2 /home/runner/work/_temp/_github_home/.m2
       - uses: suztomo/cloud-opensource-java@v1
