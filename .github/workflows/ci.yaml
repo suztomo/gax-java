@@ -9,10 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 8
       # install project to local Maven repository is done in entrypoint.sh
-      #- run: ./gradlew build publishToMavenLocal -x test -x signMavenJavaPublication
+      - run: ./gradlew --debug build publishToMavenLocal -x test -x signMavenJavaPublication
       - uses: suztomo/cloud-opensource-java@v1
-
-# Does this work?
-
-
