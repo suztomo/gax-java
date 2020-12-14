@@ -13,6 +13,7 @@ jobs:
         with:
           java-version: 8
       - run: java -version
+      # install project to local Maven repository
       - run: ./gradlew build publishToMavenLocal -x test -x signMavenJavaPublication
       - uses: suztomo/cloud-opensource-java@v1
 
