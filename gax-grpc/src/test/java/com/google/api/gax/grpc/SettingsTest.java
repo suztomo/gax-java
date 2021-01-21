@@ -40,7 +40,7 @@ import com.google.api.gax.rpc.ApiClientHeaderProvider;
 import com.google.api.gax.rpc.BatchingCallSettings;
 import com.google.api.gax.rpc.BatchingDescriptor;
 import com.google.api.gax.rpc.ClientContext;
-import com.google.api.gax.rpc.ClientSettings;
+import com.google.api.gax.rpc.ClientSettingsFoo;
 import com.google.api.gax.rpc.FixedWatchdogProvider;
 import com.google.api.gax.rpc.NoHeaderProvider;
 import com.google.api.gax.rpc.PagedCallSettings;
@@ -268,7 +268,7 @@ public class SettingsTest {
     }
   }
 
-  private static class FakeSettings extends ClientSettings {
+  private static class FakeSettings extends ClientSettingsFoo {
 
     public UnaryCallSettings<Integer, Integer> fakeMethodSimple() {
       return ((FakeStubSettings) getStubSettings()).fakeMethodSimple();
@@ -294,7 +294,7 @@ public class SettingsTest {
       super(settingsBuilder);
     }
 
-    private static class Builder extends ClientSettings.Builder {
+    private static class Builder extends ClientSettingsFoo.Builder {
 
       protected Builder() throws IOException {
         this((ClientContext) null);
